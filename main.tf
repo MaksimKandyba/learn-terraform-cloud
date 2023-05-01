@@ -1,16 +1,26 @@
 terraform {
+  cloud {
+    organization = "kandyba-org"
+
+    workspaces {
+      name = "learn-terraform-cloud"
+    }
+  }
+
   required_providers {
     fly = {
       source  = "fly-apps/fly"
       version = "0.0.21"
     }
   }
+
+  required_version = ">= 1.1.0"
 }
 
 provider "fly" {
   useinternaltunnel    = true
   internaltunnelorg    = "personal"
-  internaltunnelregion = "ams"
+  internaltunnelregion = var.provider_region
 }
 
 resource "fly_app" "exampleApp" {
