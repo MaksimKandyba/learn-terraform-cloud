@@ -18,9 +18,7 @@ terraform {
 }
 
 provider "fly" {
-  useinternaltunnel    = true
-  internaltunnelorg    = "personal"
-  internaltunnelregion = var.provider_region
+  fly_http_endpoint = "api.machines.dev"
 }
 
 resource "fly_app" "exampleApp" {
