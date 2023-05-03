@@ -1,4 +1,9 @@
-variable "provider_region" {
-  description = "Region of provider's internal tunnel"
+variable "region_a" {
+  description = "Region of instance A"
   default     = "ams"
+}
+
+variable "region_b" {
+  description = "Region of instance B"
+  default     = "arn"
 }

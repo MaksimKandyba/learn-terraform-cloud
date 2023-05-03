@@ -39,7 +39,7 @@ resource "fly_ip" "exampleIpv6" {
 }
 
 resource "fly_machine" "exampleMachine" {
-  for_each = toset(["ams", "arn"])
+  for_each = toset([var.region_a, var.region_b])
   app      = "kandyba-flyiac"
   region   = each.value
   name     = "flyiac-${each.value}"
